@@ -23,6 +23,9 @@ export const metadata: Metadata = {
     "2026 COLA increase",
     "disability benefits 2026",
   ],
+  verification: {
+    google: "qlPMVO_Hb-be3_hFHNT9SBbsHO-b_wCOfWfLmTb4EQc",
+  },
   openGraph: {
     title: `${SITE.year} Disability Benefits Calculator | SSDI & SSI`,
     description: "Calculate your 2026 SSDI and SSI benefits with 2.8% COLA. Free Back Pay estimation included.",
