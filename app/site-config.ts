@@ -14,7 +14,7 @@ export const SITE = {
     tagline: "2026 SSDI & SSI Calculator - Updated with 2.8% COLA",
     description: "Calculate your 2026 Social Security Disability (SSDI) and SSI benefits. Free calculator with Back Pay estimation, updated with official 2.8% COLA increase.",
     year: 2026,
-    baseUrl: "https://disability-calc.vercel.app",
+    baseUrl: "https://disability.mysmartcalculators.com",
 };
 
 // ============================================
@@ -202,12 +202,12 @@ export function calculateSSDI(
     if (aime <= constants.bendPoints.first) {
         pia = aime * 0.90;
     } else if (aime <= constants.bendPoints.second) {
-        pia = (constants.bendPoints.first * 0.90) + 
-              ((aime - constants.bendPoints.first) * 0.32);
+        pia = (constants.bendPoints.first * 0.90) +
+            ((aime - constants.bendPoints.first) * 0.32);
     } else {
-        pia = (constants.bendPoints.first * 0.90) + 
-              ((constants.bendPoints.second - constants.bendPoints.first) * 0.32) +
-              ((aime - constants.bendPoints.second) * 0.15);
+        pia = (constants.bendPoints.first * 0.90) +
+            ((constants.bendPoints.second - constants.bendPoints.first) * 0.32) +
+            ((aime - constants.bendPoints.second) * 0.15);
     }
 
     // Round and cap at maximum
@@ -265,15 +265,15 @@ export function calculateSSI(
     const constants = SSA_CONSTANTS_2026;
 
     // Federal SSI base
-    const federalBase = filingStatus === 'couple' 
-        ? constants.ssi.maxCouple 
+    const federalBase = filingStatus === 'couple'
+        ? constants.ssi.maxCouple
         : constants.ssi.maxIndividual;
 
     // Calculate countable income (simplified: earned income / 2 after $65 exclusion)
     const generalExclusion = 20;
     const earnedExclusion = 65;
     let countableIncome = 0;
-    
+
     if (monthlyIncome > 0) {
         const afterGeneral = Math.max(0, monthlyIncome - generalExclusion);
         const afterEarned = Math.max(0, afterGeneral - earnedExclusion);
